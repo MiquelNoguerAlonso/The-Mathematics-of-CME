@@ -1,0 +1,64 @@
+\section{From contract rules to a mathematical state}
+\label{sec:foundations}
+
+The natural object of study is the lifecycle of a contract. An order can be admitted yet receive no allocation. A spread can execute while producing several underlying positions. A profitable position can fail a cash deadline. A futures contract can finish trading while leaving a delivery obligation. Each statement concerns a different map, and each map requires a different state.
+
+Throughout this paper, ``CME'' in the title refers to the CME Group listed derivatives setting: Globex trading and the associated clearing infrastructure. CME, CBOT, NYMEX, and COMEX are distinct listing exchanges. The examples identify the relevant exchange rather than treating their contracts as legally interchangeable. Operational anchors are drawn from public specifications and rulebooks consulted on September 11, 2026 (UTC). The principal references are the matching, implied-order, market-data, settlement, risk, and contract sources cited where used.
+
+The mathematical results are elementary or standard consequences of allocation theory, convex analysis, linear programming, and cash-flow accounting. Their purpose is to identify the exact assumptions under which familiar formulas are valid. Convex optimization provides the general background \citep{Boyd2004}; the finite-scenario expected-shortfall representation is attributed separately in Section~\ref{sec:margin}. No empirical estimation, execution advantage, or novelty of those underlying tools is claimed.
+
+\subsection{Contract dimensions}
+
+A contract description contains at least
+\begin{equation}
+ \kappa_j=(\mathcal P_j,m_j,\text{currency}_j,\text{expiry}_j,
+ \text{settlement}_j,\text{delivery}_j,\text{algorithm}_j),
+\end{equation}
+where $\mathcal P_j$ is the applicable price grid. The grid may depend on order form or price range. It is not always correct to infer the tick of a spread or option from the tick of its underlying outright.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}lXXX@{}}
+\toprule
+Contract & Listing exchange & Value factor and outright tick & End obligation\\
+\midrule
+E-mini S\&P 500 (ES) & CME & \$50/point; 0.25 point, or \$12.50 & Cash settlement\\
+Light Sweet Crude Oil (CL) & NYMEX & 1,000 barrels; \$0.01/barrel, or \$10 & Physical delivery\\
+Treasury note (Chapter 19) & CBOT & \$1,000/point; $1/64$ point, or \$15.625 before currency rounding & Deliverable Treasury notes\\
+\bottomrule
+\end{tabularx}
+\caption{Selected dimensions, not a universal product template. Sources: \citet{CME358,NYMEX200,CBOT19}. The Treasury amount illustrates why quote increments and banked currency amounts must be distinguished.}
+\label{tab:contracts}
+\end{table}
+
+For example, one ES contract at 6,000 points has a reference notional of \$300,000. A one-point change generates \$50 of linear mark-to-market exposure per contract. The trade does not require a \$300,000 purchase payment. Performance-bond transfers, variation, fees, and possible final obligations belong in a separate cash ledger. This distinction will prevent a false execution-cost interpretation in Section~\ref{sec:depth}.
+
+\subsection{The state and its transitions}
+
+Let event time be $n=0,1,\ldots$. A sufficiently detailed modeled state is
+\begin{equation}
+ X_n=(\mathcal O_n,\mathcal H_n,\mathcal G_n,\phi_n,
+       \kappa_n,z_n,b_n,P_n,\theta_n).
+\label{eq:state}
+\end{equation}
+Here $\mathcal O$ contains working orders and priority, $\mathcal H$ contains hidden or contingent interest, $\mathcal G$ records enabled implication recipes and their inputs, and $\phi$ is market phase. Positions $z$, cash $b$, and collateral $P$ are indexed by account when necessary. The parameter state $\theta$ contains quantities such as risk parameters, admissibility restrictions, settlement references, and outstanding deadlines. This is a modeling construction, not a description of CME's internal database.
+
+An accepted event acts through
+\begin{equation}
+ X_{n+1}=T_{e_n}(X_n),\qquad
+ \mathcal L_{n+1}=\mathcal L_n\mathbin{\|}\Delta\mathcal L(e_n,X_n),
+\end{equation}
+where $\mathcal L$ is the ledger and $\|$ appends the new records. A useful ledger preserves the distinction between an order acknowledgment, an execution, an underlying-leg position change, a valuation, and a cash transfer. For example, computing a settlement price changes the valuation reference; the associated banked variation is a separate accounting operation.
+
+\begin{assumption}[Declared numerical scope]\label{ass:scope}
+Unless stated otherwise, examples use ordinary displayed limit orders, exact integer quantities, no self-match restrictions, no cancellations during a match, no hidden replenishment, and no special priority entitlement. Products, recipe sets, and market phases are held fixed during each calculation. Fees and interest are zero in the numerical ledger. These are assumptions of the examples, not claims about all trading on Globex.
+\end{assumption}
+
+The scope matters. A proof for a price-time queue does not establish a result for a TOP stage or an LMM stage. A constraint on final cash does not establish that intermediate calls can be met. A net position across several accounts does not establish that the accounts may share collateral.
+
+\subsection{Conservation at three levels}
+
+For a trade in a single future, signed position changes sum to zero across counterparties. For a strategy, this holds separately for every underlying leg. If all accounts use the same settlement-value map, variation also sums to zero before fees and other external flows. Collateral movements preserve an individual account's total assets only when both the free and posted sides are included. These are different conservation statements; none implies that every participant has sufficient liquid cash at every deadline.
+
+The rest of the paper develops these maps in lifecycle order. Matching and depth determine executions. Implication links books. Observation limits inference. Opening changes the matching phase. Settlement changes cash. Risk and collateral constrain continuation. Delivery and exercise determine the remaining obligations.
+\FloatBarrier

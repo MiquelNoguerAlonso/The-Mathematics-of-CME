@@ -1,0 +1,30 @@
+\section*{Notation and units}
+\addcontentsline{toc}{section}{Notation and units}
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+Symbol & Meaning and units\\
+\midrule
+$j$, $d$ & Contract index and number of underlying futures contracts.\\
+$p_j$, $\tau_j$, $m_j$ & Quote price, permitted price increment, and currency value per price point per contract.\\
+$q_i$, $y$, $f_i$ & Resting contracts, aggressor contracts available to a stage, and allocated contracts.\\
+$h$, $\rho$ & Integer pro-rata minimum and residual quantity after rounding.\\
+$X_n$, $e_n$, $\phi_n$ & Complete modeled state, event, and market phase.\\
+$\Pi$, $Y_n$ & Observation map and observed state $\Pi(X_n)$.\\
+$a(u)$, $K(Q)$ & Marginal ask price and multiplier-adjusted quote-value integral.\\
+$\ell_k$ & Signed underlying-leg vector for one unit of strategy $k$.\\
+$A$, $x$, $q$ & Nonnegative recipe-resource matrix, recipe executions, and capacities.\\
+$B(p)$, $S(p)$ & Auction-eligible buy and sell quantities at candidate price $p$.\\
+$V(p)$, $I(p)$ & Matched volume and signed buy-minus-sell imbalance.\\
+$s_t$, $\nu_j(p)$ & Settlement price and rounded money value of one contract.\\
+$z_t$, $n_{tk}$ & Signed position after cycle $t$ and signed quantity of trade $k$.\\
+$\mathrm{VM}_t$ & Settlement variation for cycle $t$, positive for a receipt.\\
+$R(z)$, $M(z)$ & Illustrative scenario risk and total illustrative margin, in currency.\\
+$g_s$ & Per-contract loss vector in scenario $s$, in currency.\\
+$b_t$, $P_t$ & Free cash and posted cash collateral in the single-currency ledger.\\
+$F^*$ & Minimum initial free cash for a specified sequence of cash flows.\\
+$c_k$, $a_k$ & Delivery conversion factor and accrued interest in the delivery section.\\
+\bottomrule
+\end{tabularx}
+
+\medskip
+Quantities are integer contracts unless a continuous relaxation is explicitly introduced. Prices may be signed; positivity is not required by the order-book or settlement identities. Monetary examples use U.S. dollars. A quote-value integral is a valuation device, whereas settlement variation is an actual cash flow. The letter $s$ indexes risk scenarios only in the margin section; subscripted $s_t$ denotes a settlement price.

@@ -1,0 +1,89 @@
+\section{Daily settlement and exact cash accounting}
+\label{sec:settlement}
+
+\subsection{The settlement price is a rule-defined statistic}
+
+CME publishes product-specific daily and final settlement procedures, including exceptional determination when the ordinary calculation is unavailable or unrepresentative \citep{CMESettlements}. A last traded price, a midquote, a daily settlement, and a final settlement can be different numbers.
+
+For the ordinary lead ES month, the consulted procedure uses the Globex trade VWAP in the 14:59:30--15:00:00 Central Time window, rounded to 0.25 index point. Its no-trade branches use other information, and other contract months have their own procedures \citep{CMESettleES}. Accordingly, the following formula is conditional on a nonempty eligible trade set in that branch:
+\begin{equation}
+ \overline p_W=\frac{\sum_{k\in W}v_kp_k}{\sum_{k\in W}v_k},
+ \qquad s=\mathcal R_{\tau}(\overline p_W),\qquad \tau=0.25.
+\label{eq:vwap}
+\end{equation}
+The operator $\mathcal R_\tau$ means rounding under the applicable convention. Our examples avoid an exact midpoint tie. Setting a missing VWAP to zero would create a fictional settlement; the required branch is instead a different statistic.
+
+\begin{proposition}[One added trade and a rounding boundary]
+If a window with positive total quantity $N$ and VWAP $\overline p$ receives an additional eligible trade of size $r$ at $p$, then
+\begin{equation}
+ \overline p'=\overline p+\frac{r}{N+r}(p-\overline p).
+\label{eq:vwapshift}
+\end{equation}
+If the original VWAP is strictly within a rounding cell, perturbations smaller than its distance to the nearest cell boundary leave the rounded settlement unchanged.
+\end{proposition}
+\begin{proof}
+Subtract $\overline p$ from $(N\overline p+rp)/(N+r)$. The rounding claim follows because the perturbed value remains in the same cell.
+\end{proof}
+
+For synthetic window trades $(6000,4)$, $(6000.25,2)$, and $(6000.50,4)$, the VWAP and rounded settlement are both 6000.25. Adding three contracts at 6001.00 produces a VWAP of $6000.423076\ldots$ and rounded settlement 6000.50. The statistic moves one tick. For an unchanged ten-contract ES position, that mark difference is \$125; it is not a statement about the added trader's profit, execution costs, or ability to influence a live benchmark.
+
+\subsection{Round value first, then difference}
+
+For the normal futures convention described in CME's money-calculation specification, define the one-contract value
+\begin{equation}
+ \nu_j(p)=\mathcal R_{c_j}(m_jp),
+\label{eq:moneyvalue}
+\end{equation}
+where $c_j$ is the settlement currency's precision. A mark from $p$ to $s$ for signed quantity $n$ is $n[\nu_j(s)-\nu_j(p)]$. This order of operations preserves lot-splitting and intermediate-mark consistency. The document distinguishes normal rounding from special notional and inverse conventions \citep{CMEMoney}. The results below concern the normal convention, with a fixed deterministic value map.
+
+For USD, decimal half-way values are rounded away from zero in the cited normal convention. Thus a synthetic one-contract value of 1.005 becomes 1.01, while $-1.005$ becomes $-1.01$. Binary floating-point rounding and banker's rounding should not silently replace that convention. In the ES ledger all relevant one-contract values are already exact cents.
+
+\subsection{A changing-position identity}
+
+For one future, let $z_{t-1}$ be the position carried into clearing cycle $t$, let $s_{t-1},s_t$ be its previous and current settlement prices, and let trades in the cycle have signed quantities $n_{tk}$ and prices $p_{tk}$. Positive quantity means a purchase. Then
+\begin{align}
+ z_t&=z_{t-1}+\sum_kn_{tk},\\
+ \mathrm{VM}_t&=z_{t-1}[\nu(s_t)-\nu(s_{t-1})]
+       +\sum_kn_{tk}[\nu(s_t)-\nu(p_{tk})].
+\label{eq:vm}
+\end{align}
+For multiple contracts, sum these expressions by contract and currency. FX conversion, if required for reporting, is a separate operation.
+
+\begin{theorem}[Settlement telescoping with trades]\label{thm:telescoping}
+For a fixed normal money-value map and the position recursion above,
+\begin{equation}
+ \sum_{t=1}^T\mathrm{VM}_t
+ =z_T\nu(s_T)-z_0\nu(s_0)
+       -\sum_{t=1}^T\sum_kn_{tk}\nu(p_{tk}).
+\label{eq:telescoping}
+\end{equation}
+Consequently, if initial and final positions are zero, total variation equals signed sale value minus signed purchase value. Subdividing a trade at the same price, or inserting intermediate marking points without changing the value map or trades, leaves the total unchanged.
+\end{theorem}
+\begin{proof}
+Substitute $z_t=z_{t-1}+\sum_kn_{tk}$ into \eqref{eq:vm} to obtain
+\[
+ \mathrm{VM}_t=z_t\nu(s_t)-z_{t-1}\nu(s_{t-1})
+                 -\sum_kn_{tk}\nu(p_{tk}).
+\]
+Summing cancels adjacent position-value terms. Trade splitting preserves the sum because quantities enter linearly. Intermediate marks cancel by the same telescoping identity.
+\end{proof}
+
+The final sentence concerns total cash transfers before financing costs. It does not say that cash can arrive after its payment deadline. It also assumes a fixed contract-value convention; corporate actions, contract conversions, daily adjustments, currency conversion, or other exceptional rules would require additional ledger terms.
+
+For a held constant position $z$, \eqref{eq:telescoping} reduces to $z[\nu(s_T)-\nu(s_0)]$. If the position changes, simply multiplying the final position by the total price change is wrong. Trades within a clearing cycle can have realized economic effects even when the final position is zero.
+
+\subsection{Cash, posted collateral, and equity}
+
+Let $b_t$ be free cash and $P_t$ posted cash collateral, measured immediately after cycle $t$. Let $D_t$ be net new external funding, $f_t$ fees, and $\Delta P_t=P_t-P_{t-1}$. A single-currency accounting identity is
+\begin{equation}
+ b_t=b_{t-1}+\mathrm{VM}_t+D_t-f_t-\Delta P_t.
+\label{eq:cash}
+\end{equation}
+Adding posted collateral yields
+\begin{equation}
+ b_t+P_t=b_{t-1}+P_{t-1}+\mathrm{VM}_t+D_t-f_t.
+\end{equation}
+Posting margin reduces free cash but does not itself create a trading loss. Releasing margin increases free cash but does not create trading profit. Noncash collateral requires separate valuation and transfer accounts rather than insertion into $b_t$ as immediately spendable money.
+
+The clearing-cycle index is intentionally more general than a calendar-day index. CME's safeguards description identifies regular intraday and end-of-day processes for futures and options \citep{CMESafeguards}. Customer calls can also depend on the clearing firm's own arrangements. The three-day example in Section~\ref{sec:ledger} aggregates to one displayed cycle per day for exposition.
+\FloatBarrier

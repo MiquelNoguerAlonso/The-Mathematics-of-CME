@@ -1,0 +1,43 @@
+\clearpage
+\section{Implementation boundaries and numerical reference}
+
+\subsection{What is exact in the supplied implementation}
+
+The FIFO routine consumes an ordered list. The proportional routine calculates rational entitlements, applies an integer minimum, and allocates residual demand FIFO. Both operate on the ordinary-order state declared in Section~\ref{sec:allocation}. They do not infer TOP status, LMM entitlements, hidden replenishment, or a product's configured sequence. The opening routine covers the five tabulated tie cases and the unique-volume case; no production fallback is supplied for remaining exact ties.
+
+The normal money-value map uses decimal half-away-from-zero rounding at one-contract value level. No special notional rounding, inverse currency conversion, option futures-style premium, or daily-value adjustment is applied. The numerical examples explicitly choose instruments and conventions for which the shown arithmetic is consistent with the declared map.
+
+The margin routine uses exactly the six vectors and three additions in Section~\ref{sec:margin}. The plotting grid is continuous, while the example positions are integer contracts. The collateral example uses one legal account, fractional bond-value allocation, a synthetic haircut, and a cash-only current variation obligation. Extending it across accounts or currencies requires additional constraints.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+Quantity & Reproduction target\\
+\midrule
+37-lot allocation & FIFO $(12,25,0)$; PR/FIFO $(5,10,22)$\\
+4-lot fragmentation & One event $(2,0,2)$; two 2-lot events $(2,2,0)$\\
+ES depth walk & Average 6000.225; shortfall \$112.50\\
+Shared implication & Individually $5+6$; jointly at most 8\\
+Completion indices & FIFO $(1,2,3)$; PR/FIFO $(3,3,3)$\\
+Opening price & 102, with 10 matched contracts\\
+VWAP perturbation & 6000.25 to $6000.423076\ldots$; rounded mark 6000.50\\
+Three-day variation & \$387.50, $-\$700.00$, \$1,500.00\\
+Total cash gain & \$1,187.50; final cash \$13,187.50\\
+Illustrative margin & \$11,200 at $(5,-5)$; \$12,800 at $(5,-3)$\\
+Peak funding & \$10,000 versus zero; \$15,000 with margin shock\\
+Collateral bottleneck & \$23,000 credited value; only \$5,000 current cash\\
+Option example & $-\$1,800$ premium; \$3,000 variation; \$1,200 net\\
+Delivery comparison & Net costs \$0, $-\$200$, \$1,200; B cheapest at 110\\
+Waterfall & Loss 17; draws $(8,2,5,2)$ in synthetic millions\\
+\bottomrule
+\end{tabularx}
+\caption{Principal numerical checkpoints. Each belongs to its stated model; the margin and collateral examples are separate from the fixed-rate integrated ledger.}
+\end{table}
+
+\subsection{Source dating and reproducible compilation}
+
+The manuscript date and consultation date are September 11, 2026 (UTC). A 2026 bibliography year for a continuously maintained operational page records the consulted snapshot; it does not imply original publication in that year. The money-calculation specification retains its stated 2015 document year. Source URLs, titles, and consultation notes are supplied in the bibliography and in \texttt{source\_register.md}.
+
+Compile \texttt{The\_Mathematics\_of\_CME.tex} with pdfLaTeX in Overleaf. Included figures require no Python or shell escape. To regenerate them and the numerical ledger, run \texttt{reproduce.py}. The source archive includes a SHA256 manifest.
+\FloatBarrier
