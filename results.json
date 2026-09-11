@@ -1,0 +1,342 @@
+{
+  "allocation_fifo": [
+    12,
+    25,
+    0
+  ],
+  "allocation_pro_fifo": [
+    5,
+    10,
+    22
+  ],
+  "minimum_two": [
+    2,
+    0,
+    2
+  ],
+  "minimum_one": [
+    1,
+    1,
+    2
+  ],
+  "fragmented_aggressor": [
+    2,
+    2,
+    0
+  ],
+  "fifo_composition": [
+    2,
+    2,
+    0
+  ],
+  "execution_value_10": "6000225/2",
+  "execution_average_10": 6000.225,
+  "execution_shortfall_10": 112.5,
+  "implied_joint_capacity": 8.0,
+  "implied_naive_sum": 11,
+  "implied_feasible_5_3": [
+    true,
+    true,
+    true
+  ],
+  "implied_leg_positions": [
+    8,
+    -5,
+    -3
+  ],
+  "implied_quote_value": "2500",
+  "implied_out_price": "3751/50",
+  "completion_event_fifo": [
+    1,
+    2,
+    3
+  ],
+  "completion_event_pro_fifo": [
+    3,
+    3,
+    3
+  ],
+  "mean_completion_fifo": [
+    0.5,
+    1.0,
+    1.5
+  ],
+  "mean_completion_pro_fifo": [
+    1.5,
+    1.5,
+    1.5
+  ],
+  "opening_B": [
+    15,
+    15,
+    10,
+    6
+  ],
+  "opening_S": [
+    4,
+    9,
+    12,
+    12
+  ],
+  "opening_volume": [
+    4,
+    9,
+    10,
+    6
+  ],
+  "opening_imbalance": [
+    11,
+    6,
+    -2,
+    -6
+  ],
+  "opening_price": 102,
+  "opening_buy_fills": [
+    6,
+    4
+  ],
+  "opening_sell_fills": [
+    4,
+    5,
+    1
+  ],
+  "opening_tie_cases": [
+    {
+      "case": "buy_only",
+      "prices": [
+        101,
+        102,
+        103
+      ],
+      "B": [
+        6,
+        6,
+        6
+      ],
+      "S": [
+        4,
+        4,
+        4
+      ],
+      "V": [
+        4,
+        4,
+        4
+      ],
+      "I": [
+        2,
+        2,
+        2
+      ],
+      "selected": 103
+    },
+    {
+      "case": "sell_only",
+      "prices": [
+        101,
+        102,
+        103
+      ],
+      "B": [
+        4,
+        4,
+        4
+      ],
+      "S": [
+        6,
+        6,
+        6
+      ],
+      "V": [
+        4,
+        4,
+        4
+      ],
+      "I": [
+        -2,
+        -2,
+        -2
+      ],
+      "selected": 101
+    },
+    {
+      "case": "balanced",
+      "prices": [
+        101,
+        102,
+        103
+      ],
+      "B": [
+        4,
+        4,
+        4
+      ],
+      "S": [
+        4,
+        4,
+        4
+      ],
+      "V": [
+        4,
+        4,
+        4
+      ],
+      "I": [
+        0,
+        0,
+        0
+      ],
+      "selected": 102
+    },
+    {
+      "case": "both_signs",
+      "prices": [
+        101,
+        102
+      ],
+      "B": [
+        6,
+        4
+      ],
+      "S": [
+        4,
+        7
+      ],
+      "V": [
+        4,
+        4
+      ],
+      "I": [
+        2,
+        -3
+      ],
+      "selected": 101
+    },
+    {
+      "case": "zero_and_positive",
+      "prices": [
+        101,
+        102
+      ],
+      "B": [
+        6,
+        4
+      ],
+      "S": [
+        4,
+        4
+      ],
+      "V": [
+        4,
+        4
+      ],
+      "I": [
+        2,
+        0
+      ],
+      "selected": 102
+    }
+  ],
+  "settlement_vwap": 6000.25,
+  "settlement_vwap_added": "156011/26",
+  "normal_rounding_positive": "1.01",
+  "normal_rounding_negative": "-1.01",
+  "ledger_variation": [
+    "387.50",
+    "-700.00",
+    "1500.00"
+  ],
+  "ledger_positions": [
+    10,
+    6,
+    0
+  ],
+  "total_variation": "1187.50",
+  "terminal_cash": "13187.50",
+  "closed_trade_cash_identity": "1187.50",
+  "cash_ledger": [
+    {
+      "day": 1,
+      "settlement": "6001",
+      "position": 10,
+      "variation": "387.50",
+      "margin_transfer": "10000",
+      "posted_margin": "10000",
+      "free_cash": "2387.50",
+      "cumulative_variation": "387.50"
+    },
+    {
+      "day": 2,
+      "settlement": "5998",
+      "position": 6,
+      "variation": "-700.00",
+      "margin_transfer": "-4000",
+      "posted_margin": "6000",
+      "free_cash": "5687.50",
+      "cumulative_variation": "-312.50"
+    },
+    {
+      "day": 3,
+      "settlement": "6002",
+      "position": 0,
+      "variation": "1500.00",
+      "margin_transfer": "-6000",
+      "posted_margin": "0",
+      "free_cash": "13187.50",
+      "cumulative_variation": "1187.50"
+    }
+  ],
+  "spread_scenario_losses": [
+    0,
+    0,
+    10000,
+    -10000,
+    10000,
+    -10000
+  ],
+  "spread_risk": 10000.0,
+  "standalone_sum": 25000.0,
+  "spread_margin": 11200.0,
+  "partial_hedge_removal_margin": 12800.0,
+  "partial_hedge_losses": [
+    4000,
+    -4000,
+    8000,
+    -8000,
+    12000,
+    -12000
+  ],
+  "tail_mean_top_two": 10000.0,
+  "empirical_var_two_thirds": 4000,
+  "funding_path_a": 10000,
+  "funding_path_b": 0,
+  "funding_with_margin_shock": 15000,
+  "funding_shortfall_from_8000": 7000,
+  "collateral_total_credit": 23000.0,
+  "collateral_aggregate_test": true,
+  "collateral_cash_feasible": false,
+  "collateral_feasible_bond_principal": 12000.0,
+  "delivery_invoices": [
+    "99600.00",
+    "102000.00",
+    "97300.00"
+  ],
+  "delivery_net_costs": [
+    "0.00",
+    "-200.00",
+    "1200.00"
+  ],
+  "cheapest_to_deliver": "B",
+  "delivery_switch_AB": 100.0,
+  "option_premium_paid": "-1800.00",
+  "option_exercise_variation": "3000",
+  "option_net_through_exercise": "1200.00",
+  "waterfall_draws": [
+    8,
+    2,
+    5,
+    2
+  ],
+  "waterfall_residual": 0,
+  "allocation_invariants": "84 quantity/demand/threshold combinations passed"
+}

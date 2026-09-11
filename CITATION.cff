@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite the paper using its DOI."
+title: "The Mathematics of CME"
+authors:
+  - family-names: "Noguer i Alonso"
+    given-names: "Miquel"
+    affiliation: "Artificial Intelligence Finance Institute (AIFI)"
+doi: "10.5281/zenodo.22700054"
+preferred-citation:
+  type: article
+  title: "The Mathematics of CME"
+  authors:
+    - family-names: "Noguer i Alonso"
+      given-names: "Miquel"
+  year: 2026
+  doi: "10.5281/zenodo.22700054"

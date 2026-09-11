@@ -1,0 +1,172 @@
+\begin{thebibliography}{22}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{Board of Trade of the City of Chicago}(2026)]{CBOT19}
+{Board of Trade of the City of Chicago}.
+\newblock Rulebook, chapter 19: {U.S.} treasury note futures (6.5 to 8-year),
+  2026.
+\newblock URL \url{https://www.cmegroup.com/rulebook/CBOT/II/19.pdf}.
+\newblock Public rulebook consulted September 11, 2026 (UTC).
+
+\bibitem[Boyd and Vandenberghe(2004)]{Boyd2004}
+Stephen Boyd and Lieven Vandenberghe.
+\newblock \emph{Convex Optimization}.
+\newblock Cambridge University Press, 2004.
+\newblock URL \url{https://web.stanford.edu/~boyd/cvxbook/}.
+
+\bibitem[{Chicago Mercantile Exchange}(2026{\natexlab{a}})]{CME358}
+{Chicago Mercantile Exchange}.
+\newblock Rulebook, chapter 358: E-mini standard and poor's 500 stock price
+  index futures, 2026{\natexlab{a}}.
+\newblock URL \url{https://www.cmegroup.com/rulebook/CME/IV/350/358/358.pdf}.
+\newblock Public rulebook consulted September 11, 2026 (UTC).
+
+\bibitem[{Chicago Mercantile Exchange}(2026{\natexlab{b}})]{CME358A}
+{Chicago Mercantile Exchange}.
+\newblock Rulebook, chapter 358a: Options on e-mini standard and poor's 500
+  stock price index futures, 2026{\natexlab{b}}.
+\newblock URL \url{https://www.cmegroup.com/rulebook/CME/IV/350/358A%20.pdf}.
+\newblock Public rulebook consulted September 11, 2026 (UTC).
+
+\bibitem[{CME Group}(2015)]{CMEMoney}
+{CME Group}.
+\newblock Money calculations for {CME}-cleared futures and options, 2015.
+\newblock URL
+  \url{https://www.cmegroup.com/clearing/files/CME-Money-Calculations-Futures-and-Options.pdf}.
+\newblock Updated June 11, 2015; public specification consulted September 11,
+  2026 (UTC).
+
+\bibitem[{CME Group}(2026{\natexlab{a}})]{CMEAcceptable}
+{CME Group}.
+\newblock Acceptable collateral, 2026{\natexlab{a}}.
+\newblock URL
+  \url{https://www.cmegroup.com/solutions/clearing/financial-and-collateral-management/acceptable-collateral.html}.
+\newblock Public schedules consulted September 11, 2026 (UTC).
+
+\bibitem[{CME Group}(2026{\natexlab{b}})]{CMECollateral}
+{CME Group}.
+\newblock Financial and collateral management, 2026{\natexlab{b}}.
+\newblock URL
+  \url{https://www.cmegroup.com/solutions/clearing/financial-and-collateral-management.html}.
+\newblock Public information consulted September 11, 2026 (UTC).
+
+\bibitem[{CME Group}(2026{\natexlab{c}})]{CMEEvents}
+{CME Group}.
+\newblock {MDP 3.0}: Event based market data messaging.
+\newblock CME Group Client Systems Wiki, 2026{\natexlab{c}}.
+\newblock URL
+  \url{https://cmegroupclientsite.atlassian.net/wiki/spaces/EPICSANDBOX/pages/457325420}.
+\newblock Public documentation consulted September 11, 2026 (UTC).
+
+\bibitem[{CME Group}(2026{\natexlab{d}})]{CMEIOPExamples}
+{CME Group}.
+\newblock Application of the indicative opening price rules.
+\newblock CME Group Client Systems Wiki, 2026{\natexlab{d}}.
+\newblock URL
+  \url{https://cmegroupclientsite.atlassian.net/wiki/spaces/EPICSANDBOX/pages/457324962}.
+\newblock Public documentation consulted September 11, 2026 (UTC).
+
+\bibitem[{CME Group}(2026{\natexlab{e}})]{CMEIOPRules}
+{CME Group}.
+\newblock Rules to determine the indicative opening price.
+\newblock CME Group Client Systems Wiki, 2026{\natexlab{e}}.
+\newblock URL
+  \url{https://cmegroupclientsite.atlassian.net/wiki/spaces/EPICSANDBOX/pages/457225139}.
+\newblock Public documentation consulted September 11, 2026 (UTC).
+
+\bibitem[{CME Group}(2026{\natexlab{f}})]{CMEImplied}
+{CME Group}.
+\newblock Implied orders.
+\newblock CME Group Client Systems Wiki, 2026{\natexlab{f}}.
+\newblock URL
+  \url{https://cmegroupclientsite.atlassian.net/wiki/spaces/EPICSANDBOX/pages/457095346}.
+\newblock Public documentation consulted September 11, 2026 (UTC).
+
+\bibitem[{CME Group}(2026{\natexlab{g}})]{CMEMBO}
+{CME Group}.
+\newblock {MDP 3.0}: Market by order---book management.
+\newblock CME Group Client Systems Wiki, 2026{\natexlab{g}}.
+\newblock URL
+  \url{https://cmegroupclientsite.atlassian.net/wiki/spaces/EPICSANDBOX/pages/457605721}.
+\newblock Public documentation consulted September 11, 2026 (UTC).
+
+\bibitem[{CME Group}(2026{\natexlab{h}})]{CMEMDP}
+{CME Group}.
+\newblock {CME MDP 3.0} market data.
+\newblock CME Group Client Systems Wiki, 2026{\natexlab{h}}.
+\newblock URL
+  \url{https://cmegroupclientsite.atlassian.net/wiki/spaces/EPICSANDBOX/pages/457219613}.
+\newblock Public documentation consulted September 11, 2026 (UTC).
+
+\bibitem[{CME Group}(2026{\natexlab{i}})]{CMEMatching}
+{CME Group}.
+\newblock Supported matching algorithms.
+\newblock CME Group Client Systems Wiki, 2026{\natexlab{i}}.
+\newblock URL
+  \url{https://cmegroupclientsite.atlassian.net/wiki/spaces/EPICSANDBOX/pages/457218479}.
+\newblock Public documentation consulted September 11, 2026 (UTC).
+
+\bibitem[{CME Group}(2026{\natexlab{j}})]{CMERisk}
+{CME Group}.
+\newblock Risk management, 2026{\natexlab{j}}.
+\newblock URL \url{https://www.cmegroup.com/solutions/risk-management.html}.
+\newblock Public information consulted September 11, 2026 (UTC).
+
+\bibitem[{CME Group}(2026{\natexlab{k}})]{CMESPAN2}
+{CME Group}.
+\newblock {SPAN 2} methodology and functionality, 2026{\natexlab{k}}.
+\newblock URL
+  \url{https://www.cmegroup.com/clearing/risk-management/span-overview/span-2-methodology.html}.
+\newblock Public methodology consulted September 11, 2026 (UTC).
+
+\bibitem[{CME Group}(2026{\natexlab{l}})]{CMESafeguards}
+{CME Group}.
+\newblock Financial safeguards, 2026{\natexlab{l}}.
+\newblock URL
+  \url{https://www.cmegroup.com/solutions/risk-management/financial-safeguards.html}.
+\newblock Public information consulted September 11, 2026 (UTC).
+
+\bibitem[{CME Group}(2026{\natexlab{m}})]{CMESettleES}
+{CME Group}.
+\newblock E-mini standard and poors 500 futures: Daily and final settlement
+  procedures.
+\newblock CME Group Client Systems Wiki, 2026{\natexlab{m}}.
+\newblock URL
+  \url{https://cmegroupclientsite.atlassian.net/wiki/spaces/EPICSANDBOX/pages/457418067}.
+\newblock Public documentation consulted September 11, 2026 (UTC).
+
+\bibitem[{CME Group}(2026{\natexlab{n}})]{CMESettlements}
+{CME Group}.
+\newblock {CME Group} settlements.
+\newblock CME Group Client Systems Wiki, 2026{\natexlab{n}}.
+\newblock URL
+  \url{https://cmegroupclientsite.atlassian.net/wiki/spaces/EPICSANDBOX/pages/457215555}.
+\newblock Public documentation consulted September 11, 2026 (UTC).
+
+\bibitem[{CME Group}(2026{\natexlab{o}})]{CMESteps}
+{CME Group}.
+\newblock {CME Globex} matching algorithm steps.
+\newblock CME Group Client Systems Wiki, 2026{\natexlab{o}}.
+\newblock URL
+  \url{https://cmegroupclientsite.atlassian.net/wiki/spaces/EPICSANDBOX/pages/457218521}.
+\newblock Public documentation consulted September 11, 2026 (UTC).
+
+\bibitem[{New York Mercantile Exchange}(2026)]{NYMEX200}
+{New York Mercantile Exchange}.
+\newblock Rulebook, chapter 200: Light sweet crude oil futures, 2026.
+\newblock URL \url{https://www.cmegroup.com/rulebook/NYMEX/2/200.pdf}.
+\newblock Public rulebook consulted September 11, 2026 (UTC).
+
+\bibitem[Rockafellar and Uryasev(2000)]{Rockafellar2000}
+R.~Tyrrell Rockafellar and Stanislav Uryasev.
+\newblock Optimization of conditional value-at-risk.
+\newblock \emph{Journal of Risk}, 2\penalty0 (3):\penalty0 21--41, 2000.
+\newblock URL
+  \url{https://sites.math.washington.edu/~rtr/papers/rtr179-CVaR1.pdf}.
+\newblock Linked author manuscript dated September 5, 1999.
+
+\end{thebibliography}

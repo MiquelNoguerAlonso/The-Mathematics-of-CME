@@ -1,0 +1,90 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype,amsmath,amssymb,amsthm,mathtools}
+\usepackage{graphicx,booktabs,tabularx,array,longtable}
+\renewcommand{\tabularxcolumn}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage[round,authoryear]{natbib}
+\usepackage{xcolor,enumitem,fancyhdr,placeins}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{url}
+\definecolor{navy}{RGB}{23,50,78}
+\usepackage[colorlinks=true,linkcolor=navy,citecolor=navy,urlcolor=navy,breaklinks=true]{hyperref}
+\hypersetup{pdftitle={The Mathematics of CME},pdfauthor={Miquel Noguer i Alonso},pdfsubject={Futures, implied liquidity, auctions, clearing, margin and delivery}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small The Mathematics of CME}
+\fancyhead[R]{\small Miquel Noguer i Alonso}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parskip}{3pt}
+\setlength{\emergencystretch}{2em}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.85}
+\setcounter{topnumber}{3}
+\setcounter{tocdepth}{1}
+\setlist{itemsep=2pt,topsep=4pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prob}{\mathbb P}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\VaR}{VaR}
+\DeclareMathOperator{\ES}{ES}
+\title{\textbf{The Mathematics of CME}\\[5pt]
+\large Futures, Implied Liquidity, Auctions, Clearing, and Margin}
+\author{Miquel Noguer i Alonso\\[2pt]
+ \small Artificial Intelligence Finance Institute (AIFI)}
+\date{September 11, 2026\\[4pt]
+\small DOI: \href{https://doi.org/10.5281/zenodo.22700054}{10.5281/zenodo.22700054}}
+\begin{document}
+\maketitle
+\begin{abstract}
+A futures market allocates contracts, creates linked positions, transfers settlement variation, and constrains those positions through collateral and delivery obligations. This paper develops a mathematical account of these operations in the setting of CME Group's listed derivatives infrastructure. Product-specific matching is represented by integer allocation maps. We establish conservation and rounding bounds for a declared pro-rata stage with FIFO residual allocation, and give an event-fragmentation counterexample. A multiplier-adjusted depth curve measures execution shortfall without treating futures notional as an upfront payment. Implied trading is represented through signed leg vectors and shared resource constraints; a dual certificate explains why individually available implied quantities need not be jointly executable. Observation maps distinguish the exchange state from market-by-order and market-by-price data, while an embedded arrival model links allocation to completion times. Opening price selection, stop election, daily settlement, and final settlement are treated as distinct operations. An exact rounded money-value representation yields a telescoping settlement identity, including changing positions. A separately specified convex scenario-risk model provides margin contours, sensitivity results, and a counterexample to monotonic margin reduction under partial hedge liquidation. Collateral feasibility and minimum funding are characterized by resource and prefix constraints. Options exercise, physical delivery, and a stylized default waterfall complete the lifecycle. Nine reproducible figures and a fully specified numerical ledger connect the results. The contribution is a unified exposition with explicit model boundaries and direct proofs; the illustrative risk functional and allocation routines are not implementations of production SPAN 2 or the complete Globex rule set.
+\end{abstract}
+\noindent\textbf{Keywords:} futures; CME Globex; pro rata; implied liquidity; auctions; settlement variation; collateral; margin; delivery.
+\clearpage
+\tableofcontents
+\clearpage
+\input{sections/notation}
+\clearpage
+\input{sections/01_foundations}
+\input{sections/02_allocation}
+\input{sections/03_depth}
+\input{sections/04_implied}
+\input{sections/05_observation}
+\input{sections/06_opening}
+\input{sections/07_settlement}
+\input{sections/08_margin}
+\input{sections/09_funding}
+\input{sections/10_delivery}
+\input{sections/11_ledger}
+\input{sections/12_conclusion}
+\FloatBarrier
+\clearpage
+\begingroup\small
+\bibliographystyle{plainnat}
+\bibliography{references}
+\endgroup
+\appendix
+\input{sections/appendix}
+\end{document}
